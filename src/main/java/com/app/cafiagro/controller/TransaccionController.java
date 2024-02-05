@@ -29,7 +29,7 @@ public class TransaccionController {
     @PostMapping(path = ("realizar-transaccion"))
     public String realizarTransaccion(@RequestBody TransaccionDTO transaccionDTO){
         transaccionService.realizarTransaccion(transaccionDTO);
-        log.info("Se realizo la transaccion No. " + transaccionRepository.getNextValTransaccion() + ". Tipo de cafe: " + transaccionDTO.getTipoCafeEnum() + ". ID comprador: " +  transaccionDTO.getIdComprador() + ". Nombre comprador: " + transaccionDTO.getNombreComprador() + ". ID vendedor: " + transaccionDTO.getIdVendendor() + ". Cantidad Kg: " + transaccionDTO.getCantidadKg() + ". Valor Kg: " + transaccionDTO.getValorKg() + ". Valor prestamo: " + transaccionDTO.getValorPrestamo() + ". Numero de tulas: " + transaccionDTO.getNumeroTulas() + ". Total factura: " + (transaccionDTO.getCantidadKg()*transaccionDTO.getValorKg()) + ". Hora: " + LocalDateTime.now() + ".");
+        log.info("Se realizo la transaccion No. " + (transaccionRepository.getNextValTransaccion() - RESTA_ULTIMO_NUMERO_SECUENCIA) + ". Tipo de cafe: " + transaccionDTO.getTipoCafeEnum() + ". ID comprador: " +  transaccionDTO.getIdComprador() + ". Nombre comprador: " + transaccionDTO.getNombreComprador() + ". ID vendedor: " + transaccionDTO.getIdVendendor() + ". Cantidad Kg: " + transaccionDTO.getCantidadKg() + ". Valor Kg: " + transaccionDTO.getValorKg() + ". Valor prestamo: " + transaccionDTO.getValorPrestamo() + ". Numero de tulas: " + transaccionDTO.getNumeroTulas() + ". Total factura: " + (transaccionDTO.getCantidadKg()*transaccionDTO.getValorKg()) + ". Hora: " + LocalDateTime.now() + ".");
         return null;
     }
 
